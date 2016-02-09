@@ -1,6 +1,6 @@
 Package.describe({
   name          : 'buom01:load-order',
-  version       : '0.4.0',
+  version       : '0.4.1',
   summary       : 'Allows to create your own file load order rules',
   git           : 'https://github.com/buom01/load-order',
   documentation : 'README.md'
