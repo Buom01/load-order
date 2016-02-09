@@ -31,7 +31,7 @@ var helpers = this.loadOrder.helpers;
 this.loadOrder.processFile = function(source) {
   var filename = helpers.getFilename(source);
   var ext = helpers.getExtension(source);
-  return helpers.copyFile(source, helpers.pathResolve(config.targetFolder, config.getLocus(source, filename, ext), String(config.getLoadOrderIndex(source, filename, ext))));
+  return helpers.copyFile(source, helpers.pathResolve(config.targetFolder, String(config.getLoadOrderIndex(source, filename, ext)),config.getLocus(source, filename, ext)));
 };
 helpers.deleteFolder(config.targetFolder);
 helpers.getAllFiles(config.sourceFolder + "/**/*.*").forEach(loadOrder.processFile);
