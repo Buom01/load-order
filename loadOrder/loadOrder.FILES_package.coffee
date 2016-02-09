@@ -26,14 +26,13 @@ loadOrder.FILES['package.js'] = """
     name: '#{SHORT_NAME}',
     npmDependencies: {
       'glob'   : '5.0.5',
-      'mkdirp' : '0.5.0',
       'rimraf' : '2.3.2'
     },
     use: [ 'coffeescript@1.0.6' ],
     sources: [
         '#{CONFIG_SHORT_NAME}.js',
         '#{CONFIG_SHORT_NAME}.coffee',
-        '#{SHORT_NAME}.min.js'
+        '#{SHORT_NAME}.js'
       ].filter(function(source) {
         return sourceExists(source);
       })

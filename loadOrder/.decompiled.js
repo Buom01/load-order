@@ -1,12 +1,8 @@
-loadOrder.FILES['load-order.js'] = '''
 var path = Npm.require("path");
 var glob = Npm.require("glob");
 var rimraf = Npm.require("rimraf");
-var fs = Npm.require("fs");
 var mkdirp = Npm.require("mkdirp");
-
-var config = this.loadOrder.config;
-
+var fs = Npm.require("fs");
 this.loadOrder.helpers = {
   pathResolve: path.resolve,
   getFilename: path.basename,
@@ -16,18 +12,11 @@ this.loadOrder.helpers = {
     return path.extname(filename).slice(1);
   },
   copyFile: function(source, dest) {
-    var newFilename = source.replace(config.sourceFolder+"/","").replace(/\\/|\\\\/g,'-');
-    var absoluteSource = path.join(path.resolve('.'),source);
-    var absoluteDest = path.join(dest,newFilename);
-    mkdirp.sync(dest);
-    if(config.symlink){
-      fs.symlinkSync(absoluteSource,absoluteDest, 'file');
-    }else{
-      fs.createReadStream(absoluteSource).pipe(fs.createWriteStream(absoluteDest));
-    }
+    return mkdirp.sync(dest), fs.createReadStream(source).pipe(fs.createWriteStream(path.join(dest, path.basename(source))));
   }
 };
 var helpers = this.loadOrder.helpers;
+var config = this.loadOrder.config;
 this.loadOrder.processFile = function(source) {
   var filename = helpers.getFilename(source);
   var ext = helpers.getExtension(source);
@@ -35,5 +24,3 @@ this.loadOrder.processFile = function(source) {
 };
 helpers.deleteFolder(config.targetFolder);
 helpers.getAllFiles(config.sourceFolder + "/**/*.*").forEach(loadOrder.processFile);
-
-  '''
