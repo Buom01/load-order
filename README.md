@@ -1,3 +1,5 @@
+> Important notes: This package doesn't work very well, and I think that the best way to do this is using gruntjs
+
 ## Meteor Load Order
 
 Create your own file load order rules for Meteor.
