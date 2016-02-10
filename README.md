@@ -1,5 +1,7 @@
 > Important notes: This package doesn't work very well, and I think that the best way to do this is using gruntjs
 
+> Wait next update before installing this package ! Next update will use gruntjs
+
 ## Meteor Load Order
 
 Create your own file load order rules for Meteor.
