@@ -1,6 +1,8 @@
+> Now deprecated in favor of **[grunt-meteor-load-order](https://github.com/Buom01/grunt-meteor-load-order)** that work correctly
+
 > Important notes: This package doesn't work very well, and I think that the best way to do this is using gruntjs
 
-> Wait next update before installing this package ! Next update will use gruntjs
+> ~~Wait next update before installing this package ! Next update will use gruntjs~~
 
 ## Meteor Load Order
 
